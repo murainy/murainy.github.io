@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[mysql5.7.13配置]]></title>
+      <url>http://murainy.github.io/2016/07/20/mysql5-7-13/</url>
+      <content type="html"><![CDATA[<p>mysql-5.7&#x7684;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x8BB0;&#x5F97;&#x6267;&#x884C;&#x4E00;&#x4E0B;mysqld &#x2013;initialize&#x3002;&#x5982;&#x679C;data&#x76EE;&#x5F55;&#x4E0B;&#x5DF2;&#x7ECF;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x6E05;&#x7A7A;&#x540E;&#x518D;&#x6267;&#x884C;mysqld &#x2013;initialize&#x3002;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+<p>&#x524D;&#x4E9B;&#x5929;&#x5728;windows&#x4E0B;&#x5B89;&#x88C5;&#x4E86;mysql5.7.9&#xFF0C;&#x8BBE;&#x7F6E;&#x4E86;root&#x5BC6;&#x7801;&#xFF0C;&#x8FD9;&#x51E0;&#x5929;&#x60F3;&#x7528;&#xFF0C;&#x5BC6;&#x7801;&#x7ED9;&#x5FD8;&#x8BB0;&#x4E86;&#x3002;</p>
+<p>1&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x53EA;&#x9002;&#x7528;&#x4E8E;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x7684;mysql&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x6E05;&#x9664;&#x6240;&#x6709;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF08;&#x81EA;&#x5DF1;&#x770B;&#x60C5;&#x51B5;&#x4F7F;&#x7528;&#xFF09;&#xFF1A;</p>
+<p>&#x5173;&#x95ED;mysql&#x670D;&#x52A1;&#xFF0C;mysql5.7.9&#x7684;&#x670D;&#x52A1;&#x540D;&#x53EF;&#x80FD;&#x4E3A;MySQL57&#xFF0C;&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#x3002;</p>
+<blockquote>
+<p>net stop mysql</p>
+</blockquote>
+<p>&#x6E05;&#x9664;&#x6216;&#x79FB;&#x52A8;mysql&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E0B;&#x7684;data&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF08;&#x5173;&#x4E8E;data&#x76EE;&#x5F55;&#x5B58;&#x653E;&#x6587;&#x4EF6;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x4E0D;&#x6562;&#x786E;&#x5B9A;&#xFF09;&#x3002;</p>
+<p>&#x6253;&#x5F00;CMD&#x8FDB;&#x5165;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x7684;bin&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#xFF1A;mysqld &#x2013;initialize-insecure&#xFF0C;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4F1A;&#x751F;&#x6210;&#x65E0;&#x5BC6;&#x7801;&#x7684;root&#x7528;&#x6237;&#x3002;&#x800C;&#x547D;&#x4EE4;mysqld &#x2013;initialize&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5E26;&#x968F;&#x673A;&#x5BC6;&#x7801;&#x7684;root&#x7528;&#x6237;&#x3002;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7B2C;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x751F;&#x6210;&#x65E0;&#x5BC6;&#x7801;&#x7684;root&#x7528;&#x6237;&#x3002;</p>
+<blockquote>
+<p>mysqld &#x2013;initialize-insecure</p>
+</blockquote>
+<p>&#x542F;&#x52A8;mysql&#x670D;&#x52A1;</p>
+<blockquote>
+<p>net start mysql</p>
+</blockquote>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#xFF1A;mysql -uroot -p &#x8FDB;&#x5165;&#x5230;mysql&#xFF0C;&#x8FDB;&#x5165;&#x65F6;&#x5E94;&#x8BE5;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x7684;&#x3002;</p>
+<blockquote>
+<p>mysql -uroot -p</p>
+</blockquote>
+<p>&#x4FEE;&#x6539;root&#x5BC6;&#x7801;</p>
+<p>&#x5728;5.7.9&#x7684;mysql database&#x7684;user&#x8868;&#x4E2D;&#x6CA1;&#x6709;password&#x7684;&#x5B57;&#x6BB5;&#x4E86;&#xFF0C;&#x66F4;&#x6539;&#x4E3A;&#x4E86;authentication_string&#xFF0C;&#x6240;&#x4EE5;&#x4FEE;&#x6539;root&#x5BC6;&#x7801;&#x65F6;&#x4F7F;&#x7528;</p>
+<blockquote>
+<p>update mysql.user set authentication=PASSWORD(&#x2018;yourpassword&#x2019;) where user=&#x2019;root&#x2019;;</p>
+</blockquote>
+<p>&#x5237;&#x65B0;&#x6743;&#x9650;</p>
+<blockquote>
+<p>flush privileges;</p>
+</blockquote>
+<p>&#x9000;&#x51FA;</p>
+<blockquote>
+<p>quit</p>
+</blockquote>
+<p>&#x6B64;&#x65F6;&#xFF0C;&#x91CD;&#x65B0;&#x767B;&#x5F55;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x65B0;&#x8BBE;&#x7F6E;&#x7684;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x4E86;&#x3002;</p>
+<pre><code>mysql &#x2013;uroot
+
+mysql&gt;show databases;
+
+mysql&gt;use mysql;
+
+mysql&gt; update mysql.user set authentication_string=password(&apos;123456&apos;) where user=&apos;root&apos; and Host = &apos;localhost&apos;;
+
+mysql&gt; FLUSH PRIVILEGES;
+
+mysql&gt; QUIT
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Gradle]]></title>
+      <url>http://murainy.github.io/2016/07/09/Gradle/</url>
+      <content type="html"><![CDATA[<p>&#x8303;&#x4F8B;<br>{@projectName}/build.gradle</p>
+<p>buildscript {<br>    repositories {<br>        jcenter()<br>    }<br>    dependencies {<br>    //gradle&#x7248;&#x672C;<br>        classpath &#x2018;com.android.tools.build:gradle:1.0.0&#x2019;<br>    }<br>}</p>
+<p>allprojects {<br>    repositories {<br>        jcenter()<br>    }<br>}</p>
+<p>{@projectName}/settings.gradle</p>
+<p>//&#x5305;&#x542B;&#x7684;module<br> include &#x2018;:app&#x2019;, &#x2018;:library&#x2019;<br>{@ModuleName}/build.gradle</p>
+<p>//&#x58F0;&#x660E;&#x4F7F;&#x7528;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x8868;&#x660E;&#x8981;&#x7F16;&#x8BD1;&#x7684;&#x5185;&#x5BB9;&#x548C;&#x4EA7;&#x7269;<br>apply plugin:<br> &#x2018;com.android.application&#x2019;   &#x8868;&#x660E;&#x8BE5;module&#x4E3A;android&#x5E94;&#x7528;&#xFF0C;&#x4EA7;&#x751F;apk<br>&#x2018;com.android.library&#x2019; &#x8868;&#x660E;module&#x4E3A;android&#x5E93;&#xFF0C;&#x4EA7;&#x751F;jar&#x5305;&#x6216;aar</p>
+<p>android {<br>    // &#x7F16;&#x8BD1;SDK&#x7684;&#x7248;&#x672C;<br>    compileSdkVersion 21<br>    // build tools&#x7684;&#x7248;&#x672C;<br>    buildToolsVersion &#x201C;21.1.1&#x201D;</p>
+<pre><code>defaultConfig {
+    // &#x5E94;&#x7528;&#x7684;&#x5305;&#x540D;
+    applicationId &quot;com.coderrobin.test&quot;
+//&#x652F;&#x6301;&#x7684;&#x6700;&#x5C0F;android sdk&#x7248;&#x672C;
+    minSdkVersion 14 
+//&#x76EE;&#x6807;&#x7248;&#x672C;&#xFF08;&#x7F16;&#x8BD1;&#x7528;&#x7684;sdk&#xFF09;
+    targetSdkVersion 21
+//&#x7248;&#x672C;&#x53F7;
+    versionCode 1
+//&#x7248;&#x672C;&#x540D;&#x79F0;
+    versionName &quot;1.0.0&quot;
+}
+
+// java&#x7248;&#x672C;
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+}
+</code></pre><p>signingConfigs {<br>   release{<br>       storeFile file(&#x201C;gradle.keystore&#x201D;)<br>        storePassword &#x201C;gradle&#x201D;<br>        keyAlias &#x201C;gradle&#x201D;<br>        keyPassword &#x201C;gradle&#x201D;<br>    }<br>}</p>
+<p>//&#x7F16;&#x8BD1;&#x7C7B;&#x578B;<br>buildTypes {<br>    release {</p>
+<pre><code>    applicationIdSuffix &apos;.release&apos;
+    signingConfig signingConfigs.release
+    zipAlignEnabled false
+}
+debug {
+    applicationIdSuffix &apos;.debug&apos;
+    zipAlignEnabled false
+}
+buildtypesnochange {
+    signingConfig signingConfigs.release
+    zipAlignEnabled false
+}
+}
+
+productFlavors {
+    playstore {
+            applicationId &apos;com.coderrobin.test.playstore&apos;
+    }
+    amazonstore {
+            applicationId &apos;com.coderrobin.test.amazonstore&apos;
+    }
+productflavorsnochange {}
+}
+
+// &#x79FB;&#x9664;lint&#x68C0;&#x67E5;&#x7684;error
+lintOptions {
+  abortOnError false
+}
+</code></pre><p>}</p>
+<p>dependencies {<br>    // &#x7F16;&#x8BD1;libs&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;jar&#x5305;<br>    compile fileTree(dir: &#x2018;libs&#x2019;, include: [&#x2018;*.jar&#x2019;])<br>    compile &#x2018;com.android.support:support-v4:21.0.2&#x2019;<br>    compile project(&#x2018;:libs&#x2019;)<br>}<br>Groovy &#x7684;&#x57FA;&#x672C;&#x8BED;&#x6CD5;<br>&#x65B9;&#x6CD5;&#x8C03;&#x7528;<br>apply plugin: &#x2018;com.android.application&#x2019;<br>&#x4EE5;&#x4E0A;&#x8BED;&#x53E5;&#x4E2D;&#x7684;apply&#x662F;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x7ED9;&#x5B83;&#x4F20;&#x9012;&#x4E86;&#x4E00;&#x4E2A;&#x53C2;&#x6570;plugin&#xFF0C;plugin &#x7684;&#x503C;&#x662F;&#x2019;com.android.application<br>&#x95ED;&#x5305;<br>Groovy&#x4E2D;&#x82B1;&#x62EC;&#x53F7;&#x5305;&#x542B;&#x7684;&#x90E8;&#x5206;&#x4E3A;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#xFF08;Closure&#xFF09;&#x3002;&#x4F8B;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;<br>1<br>2<br>3<br>4<br>compileOptions {<br>       sourceCompatibility JavaVersion.VERSION_1_7<br>       targetCompatibility JavaVersion.VERSION_1_7<br>   }<br>compileOptions &#x662F;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C; &#x5B83;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#xFF0C;&#x8FD9;&#x4E2A;&#x95ED;&#x5305;&#x5185;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x4E86;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5; &#x2014; sourceCompatibility &#x548C;targetCompatibility&#xFF0C; &#x53C2;&#x6570;&#x90FD;&#x662F;JavaVersion.VERSION17&#x3002;<br>&#x95ED;&#x5305;&#x5D4C;&#x5957;<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br> signingConfigs {<br>   release{<br>       storeFile file(&#x201C;gradle.keystore&#x201D;)<br>        storePassword &#x201C;gradle&#x201D;<br>        keyAlias &#x201C;gradle&#x201D;<br>        keyPassword &#x201C;gradle&#x201D;<br>    }<br>}<br>signingConfigs&#x662F;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#xFF0C;&#x8BE5;&#x95ED;&#x5305;&#x4E2D;&#x6709;release&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#xFF0C;&#x8BE5;&#x95ED;&#x5305;&#x5185;&#x542B;&#x6709;storeFile&#xFF0C;storePassword,keyAlias,keyPassword&#x65B9;&#x6CD5;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[霍尔传感器]]></title>
+      <url>http://murainy.github.io/2016/07/05/post/</url>
+      <content type="html"><![CDATA[<p>&#x970D;&#x5C14;&#x4F20;&#x611F;&#x5668;&#x662F;&#x6839;&#x636E;&#x970D;&#x5C14;&#x6548;&#x5E94;&#x5236;&#x4F5C;&#x7684;&#x4E00;&#x79CD;&#x78C1;&#x573A;&#x4F20;&#x611F;&#x5668;&#x3002;&#x970D;&#x5C14;&#x6548;&#x5E94;&#x662F;&#x78C1;&#x7535;&#x6548;&#x5E94;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x8FD9;&#x4E00;&#x73B0;&#x8C61;&#x662F;&#x970D;&#x5C14;&#xFF08;A.H.Hall&#xFF0C;1855&#x2014;1938&#xFF09;&#x4E8E;1879&#x5E74;&#x5728;&#x7814;&#x7A76;&#x91D1;&#x5C5E;&#x7684;&#x5BFC;&#x7535;&#x673A;&#x6784;&#x65F6;&#x53D1;&#x73B0;&#x7684;&#x3002;&#x540E;&#x6765;&#x53D1;&#x73B0;&#x534A;&#x5BFC;&#x4F53;&#x3001;&#x5BFC;&#x7535;&#x6D41;&#x4F53;&#x7B49;&#x4E5F;&#x6709;&#x8FD9;&#x79CD;&#x6548;&#x5E94;&#xFF0C;&#x800C;&#x534A;&#x5BFC;&#x4F53;&#x7684;&#x970D;&#x5C14;&#x6548;&#x5E94;&#x6BD4;&#x91D1;&#x5C5E;&#x5F3A;&#x5F97;&#x591A;&#xFF0C;&#x5229;&#x7528;&#x8FD9;&#x73B0;&#x8C61;&#x5236;&#x6210;&#x7684;&#x5404;&#x79CD;&#x970D;&#x5C14;&#x5143;&#x4EF6;&#xFF0C;&#x5E7F;&#x6CDB;&#x5730;&#x5E94;&#x7528;&#x4E8E;&#x5DE5;&#x4E1A;&#x81EA;&#x52A8;&#x5316;&#x6280;&#x672F;&#x3001;&#x68C0;&#x6D4B;&#x6280;&#x672F;&#x53CA;&#x4FE1;&#x606F;&#x5904;&#x7406;&#x7B49;&#x65B9;&#x9762;&#x3002;&#x970D;&#x5C14;&#x6548;&#x5E94;&#x662F;&#x7814;&#x7A76;&#x534A;&#x5BFC;&#x4F53;&#x6750;&#x6599;&#x6027;&#x80FD;&#x7684;&#x57FA;&#x672C;&#x65B9;&#x6CD5;&#x3002;&#x901A;&#x8FC7;&#x970D;&#x5C14;&#x6548;&#x5E94;&#x5B9E;&#x9A8C;&#x6D4B;&#x5B9A;&#x7684;&#x970D;&#x5C14;&#x7CFB;&#x6570;&#xFF0C;&#x80FD;&#x591F;&#x5224;&#x65AD;&#x534A;&#x5BFC;&#x4F53;&#x6750;&#x6599;&#x7684;&#x5BFC;&#x7535;&#x7C7B;&#x578B;&#x3001;&#x8F7D;&#x6D41;&#x5B50;&#x6D53;&#x5EA6;&#x53CA;&#x8F7D;&#x6D41;&#x5B50;&#x8FC1;&#x79FB;&#x7387;&#x7B49;&#x91CD;&#x8981;&#x53C2;&#x6570;&#x3002;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[new]]></title>
+      <url>http://murainy.github.io/2016/07/05/new/</url>
+      <content type="html"><![CDATA[<p>&#x5FF5;&#x5FF5;&#x4E0D;&#x5FD8;&#xFF0C;&#x5FC5;&#x6709;&#x56DE;&#x54CD;&#xFF0C;&#x6C38;&#x8FDC;&#x575A;&#x6301;&#x4F60;&#x6240;&#x575A;&#x6301;&#x7684;&#xFF01;</p>
+<p><img src="http://i.imgur.com/2QlHqwL.jpg" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[日志]]></title>
+      <url>http://murainy.github.io/2016/07/05/title-1/</url>
+      <content type="html"><![CDATA[<p>&#x4ECA;&#x5929;&#x5C31;&#x662F;&#x672A;&#x6765;&#xFF0C;&#x6CA1;&#x6709;&#x4EBA;&#x80FD;&#x4EE3;&#x66FF;&#x4F60;&#x594B;&#x6597;&#xFF01;&#x81EA;&#x5DF1;&#x9020;&#x7684;&#x8239;&#xFF0C;&#x7EC8;&#x6709;&#x4E00;&#x5929;&#x5B83;&#x4F1A;&#x626C;&#x5E06;&#x8FDC;&#x822A;&#xFF01;</p>
+<p>&#x6211;&#x4E0D;&#x4F1A;&#x5FD8;&#x4E86;&#x6211;<br>&#x5FD8;&#x4E86;&#x6211;&#x66FE;&#x8BF4;&#x8FC7;&#x4E00;&#x5B9A;&#x4F1A;&#x5F97;&#x5230;&#x7684;&#x68A6;&#x60F3; &#x2014;&#x2014;&#x300A;&#x8001;&#x5927;&#x300B;&#x5C0F;&#x67EF;</p>
+<p>&#x751F;&#x6D3B;&#x7684;&#x8270;&#x96BE;&#xFF0C;&#x66F4;&#x4F1A;&#x6FC0;&#x53D1;&#x5BF9;&#x68A6;&#x60F3;&#x7684;&#x6E34;&#x671B;&#xFF0C;&#x4F46;&#x8270;&#x96BE;&#x7684;&#x751F;&#x6D3B;&#x5374;&#x5F80;&#x5F80;&#x4F1A;&#x6210;&#x4E3A;&#x68A6;&#x60F3;&#x7684;&#x7ECA;&#x811A;&#x77F3;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[日志]]></title>
+      <url>http://murainy.github.io/2016/07/05/title/</url>
+      <content type="html"><![CDATA[<p>#1.&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x8BA9;&#x81EA;&#x5DF1;&#x8FC7;&#x53BB;&#x7684;&#x9519;&#x8BEF;&#x5E72;&#x6270;&#x4ED6;&#x4EEC;&#x4ECA;&#x5929;&#x7684;&#x751F;&#x6D3B;&#x3002;</p>
+<p>&#x806A;&#x660E;&#x4EBA;&#x786E;&#x4FE1;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x5931;&#x8D25;&#x548C;&#x9519;&#x8BEF;&#xFF0C;&#x5C31;&#x4E0D;&#x53EF;&#x80FD;&#x53D6;&#x5F97;&#x4EFB;&#x4F55;&#x6210;&#x529F;&#x3002;&#x8FD9;&#x4E9B;&#x5931;&#x8D25;&#x5F88;&#x53EF;&#x80FD;&#x6210;&#x4E3A;&#x4ED6;&#x4EEC;&#x8FBE;&#x6210;&#x76EE;&#x6807;&#x7684;&#x969C;&#x788D;&#x3002;&#x4ED6;&#x4EEC;&#x4ECE;&#x4E0D;&#x8BA9;&#x8FD9;&#x79CD;&#x4E8B;&#x60C5;&#x53D1;&#x751F;&#x3002;&#x4ED6;&#x4EEC;&#x628A;&#x8FC7;&#x53BB;&#x7559;&#x5728;&#x4E86;&#x8EAB;&#x540E;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x4F60;&#x4E0D;&#x53EF;&#x80FD;&#x6539;&#x53D8;&#x8FD9;&#x4E9B;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x5374;&#x80FD;&#x4ECE;&#x4E2D;&#x83B7;&#x53D6;&#x7ECF;&#x9A8C;&#x548C;&#x6559;&#x8BAD;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x770B;&#x4F5C;&#x4E00;&#x6B21;&#x81EA;&#x6211;&#x6210;&#x957F;&#x7684;&#x673A;&#x4F1A;&#x3002;</p>
+<p>#2.&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x4E13;&#x6CE8;&#x4E8E;&#x8D1F;&#x9762;&#x6216;&#x6D88;&#x6781;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x806A;&#x660E;&#x4EBA;&#x76F8;&#x4FE1;&#xFF0C;&#x8FD9;&#x4E9B;&#x6D88;&#x6781;&#x6216;&#x8D1F;&#x9762;&#x7684;&#x4E1C;&#x897F;&#x662F;&#x4E00;&#x79CD;&#x5BA2;&#x89C2;&#x5B58;&#x5728;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8BA9;&#x81EA;&#x5DF1;&#x7684;&#x5927;&#x8111;&#x5145;&#x6EE1;&#x8D1F;&#x9762;&#x4FE1;&#x606F;&#xFF0C;&#x4F60;&#x7684;&#x751F;&#x6D3B;&#x4E5F;&#x5C06;&#x5904;&#x4E8E;&#x6D88;&#x6781;&#x88AB;&#x52A8;&#x72B6;&#x6001;&#x3002;&#x806A;&#x660E;&#x4EBA;&#x77E5;&#x9053;&#xFF0C;&#x5F53;&#x4F60;&#x5C3D;&#x4F60;&#x6240;&#x80FD;&#xFF0C;&#x52AA;&#x529B;&#x5730;&#x68A6;&#x60F3;&#x3001;&#x521B;&#x9020;&#x3001;&#x6784;&#x5EFA;&#x3001;&#x601D;&#x7D22;&#x4EE5;&#x53CA;&#x70ED;&#x7231;&#x65F6;&#xFF0C;&#x4F60;&#x7684;&#x751F;&#x6D3B;&#x5C06;&#x4F1A;&#x53D8;&#x5F97;&#x66F4;&#x597D;&#x3002;</p>
+<p>#3.&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x9003;&#x79BB;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x4EBA;&#x90FD;&#x66FE;&#x6709;&#x8FC7;&#xFF0C;&#x6B63;&#x5728;&#x6709;&#xFF0C;&#x6216;&#x8005;&#x5C06;&#x8981;&#x6709;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x95EE;&#x9898;&#x3002;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x4E5F;&#x8BB8;&#x4E0E;&#x5DE5;&#x4F5C;&#x3001;&#x94B1;&#x8D22;&#x3001;&#x5BB6;&#x5EAD;&#x3001;&#x5065;&#x5EB7;&#x3001;&#x7B49;&#x7B49;&#x76F8;&#x5173;&#x3002;&#x806A;&#x660E;&#x4EBA;&#x5C06;&#x9762;&#x5BF9;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x3002;&#x4ED6;&#x4EEC;&#x4E3A;&#x6B64;&#x5BFB;&#x627E;&#x6700;&#x4F73;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x5F53;&#x4ED6;&#x4EEC;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x4ED6;&#x4EEC;&#x4F1A;&#x7AD9;&#x8D77;&#x6765;&#xFF0C;&#x7EE7;&#x7EED;&#x524D;&#x884C;&#x3002;&#x4ED6;&#x4EEC;&#x6709;&#x52C7;&#x6C14;&#x5BF9;&#x6297;&#x6050;&#x60E7;&#xFF0C;&#x4ED6;&#x4EEC;&#x5C06;&#x6BCF;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x770B;&#x4F5C;&#x4E00;&#x6B21;&#x81EA;&#x6211;&#x63D0;&#x5347;&#x7684;&#x673A;&#x4F1A;&#x3002;</p>
+<p>#4.&#x4ED6;&#x4EEC;&#x4E0D;&#x5728;&#x610F;&#x5176;&#x4ED6;&#x4EBA;&#x5982;&#x4F55;&#x770B;&#x5F85;&#x4ED6;&#x4EEC;&#x3002;</p>
+<p>&#x806A;&#x660E;&#x4EBA;&#x4E0D;&#x4F1A;&#x8BA9;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#x6D88;&#x6781;&#x60C5;&#x7EEA;&#x5F71;&#x54CD;&#x4ED6;&#x4EEC;&#x5145;&#x6EE1;&#x5FEB;&#x4E50;&#x548C;&#x559C;&#x60A6;&#x7684;&#x751F;&#x6D3B;&#x3002;&#x8FD9;&#x4E2A;&#x4E16;&#x754C;&#x4E0D;&#x7F3A;&#x5C11;&#x6124;&#x4E16;&#x5AC9;&#x4FD7;&#x5206;&#x5B50;&#x3001;&#x6000;&#x7591;&#x8BBA;&#x8005;&#x548C;&#x5FC3;&#x6000;&#x5992;&#x5FCC;&#x7684;&#x4EBA;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x806A;&#x660E;&#x4EBA;&#x4F1A;&#x8FDC;&#x79BB;&#x4ED6;&#x4EEC;&#x3002;&#x4ED6;&#x4EEC;&#x559C;&#x6B22;&#x4E0E;&#x90A3;&#x4E9B;&#x667A;&#x6167;&#x7684;&#x4EBA;&#x4E3A;&#x4F34; &#x2013; &#x4E00;&#x8D77;&#x5206;&#x4EAB;&#x5171;&#x540C;&#x7684;&#x5174;&#x8DA3;&#x548C;&#x4EF7;&#x503C;&#x89C2;&#x3002;&#x6709;&#x4E00;&#x4E2A;&#x4F18;&#x79C0;&#x7684;&#x601D;&#x60F3;&#x503C;&#x5F97;&#x4F60;&#x7559;&#x5FC3;&#x4E00;&#x4E0B;&#xFF1A;&#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x623F;&#x95F4;&#x91CC;&#xFF0C;&#x4F60;&#x662F;&#x6700;&#x806A;&#x660E;&#x7684;&#x4EBA;&#xFF0C;&#x4F60;&#x4E00;&#x5B9A;&#x6765;&#x9519;&#x4E86;&#x5730;&#x65B9;&#x3002;</p>
+<p>#5.&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x6D6A;&#x8D39;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x806A;&#x660E;&#x4EBA;&#x4E0D;&#x4F1A;&#x6D6A;&#x8D39;&#x65F6;&#x95F4;&#x3002;&#x4ED6;&#x4EEC;&#x901A;&#x8FC7;&#x57F9;&#x517B;&#x9AD8;&#x6548;&#x7684;&#x4E60;&#x60EF;&#xFF0C;&#x5E2E;&#x52A9;&#x4ED6;&#x4EEC;&#x66F4;&#x597D;&#x66F4;&#x5FEB;&#x5730;&#x5DE5;&#x4F5C;&#x3002;&#x4ED6;&#x4EEC;&#x4E0D;&#x8BA9;&#x4EFB;&#x4F55;&#x6BEB;&#x65E0;&#x610F;&#x4E49;&#x7684;&#x4E8B;&#x60C5;&#x53CA;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x4EFB;&#x52A1;&#x6253;&#x6270;&#x548C;&#x5206;&#x6563;&#x4ED6;&#x4EEC;&#x7684;&#x6CE8;&#x610F;&#x529B;&#x3002;&#x4ED6;&#x4EEC;&#x5F53;&#x7136;&#x77E5;&#x9053;&#x3002;&#x4E00;&#x4E2A;&#x4EBA;&#x4E0D;&#x53EF;&#x80FD;&#x603B;&#x662F;&#x5DE5;&#x4F5C;&#xFF0C;&#x4EBA;&#x7684;&#x5927;&#x8111;&#x9700;&#x8981;&#x95F4;&#x6B47;&#x6027;&#x7684;&#x4F11;&#x606F;&#x3002;</p>
+<p>#6.&#x4ED6;&#x4EEC;&#x4E0D;&#x671F;&#x5F85;&#x7ACB;&#x7AFF;&#x89C1;&#x5F71;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x806A;&#x660E;&#x4EBA;&#x77E5;&#x9053;&#xFF0C;&#x5E78;&#x8FD0;&#x6C38;&#x8FDC;&#x964D;&#x4E34;&#x5728;&#x90A3;&#x4E9B;&#x6709;&#x8010;&#x5FC3;&#xFF0C;&#x613F;&#x610F;&#x7B49;&#x5F85;&#x7684;&#x4EBA;&#x8EAB;&#x4E0A;&#x3002;&#x5728;&#x5F53;&#x4ECA;&#x8FD9;&#x4E2A;&#x65F6;&#x4EE3;&#xFF0C;&#x5F88;&#x591A;&#x4EBA;&#x603B;&#x662F;&#x5E0C;&#x671B;&#x5728;&#x4E00;&#x5206;&#x949F;&#x4E4B;&#x5185;&#x5F97;&#x5230;&#x4ED6;&#x4EEC;&#x60F3;&#x8981;&#x5F97;&#x5230;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x806A;&#x660E;&#x4EBA;&#x6DF1;&#x77E5;&#xFF0C;&#x4ED6;&#x4EEC;&#x5FC5;&#x987B;&#x51ED;&#x501F;&#x52AA;&#x529B;&#x65B9;&#x80FD;&#x83B7;&#x5F97;&#x4ED6;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x4F60;&#x53EA;&#x6709;&#x5728;&#x505A;&#x8FC7;&#x4E4B;&#x540E;&#xFF0C;&#x624D;&#x80FD;&#x771F;&#x6B63;&#x7406;&#x89E3;&#x4ED6;&#x4EEC;&#x3002;</p>
+<p>#7.&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5C06;&#x4E3B;&#x8981;&#x7CBE;&#x529B;&#x653E;&#x5728;&#x90A3;&#x4E9B;&#x4ED6;&#x4EEC;&#x4E0D;&#x53EF;&#x63A7;&#x5236;&#x7684;&#x4E8B;&#x60C5;&#x4E0A;&#x3002;</p>
+<p>&#x6BCF;&#x5929;&#x6211;&#x4EEC;&#x90FD;&#x5C06;&#x9762;&#x5BF9;&#x4E00;&#x4E9B;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5982;&#x4EA4;&#x901A;&#x5835;&#x585E;&#x3001;&#x7C97;&#x9C81;&#x65E0;&#x793C;&#x7684;&#x4EBA;&#x7B49;&#x7B49;&#x3002;&#x806A;&#x660E;&#x4EBA;&#x77E5;&#x9053;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8D1F;&#x9762;&#x60C5;&#x7EEA;&#x4F1A;&#x4F24;&#x5BB3;&#x5230;&#x81EA;&#x5DF1;&#xFF0C;&#x4ED6;&#x4EEC;&#x5BF9;&#x8FD9;&#x7C7B;&#x4E8B;&#x60C5;&#x52AA;&#x529B;&#x4FDD;&#x6301;&#x5E73;&#x9759;&#x3002;</p>
+<p>#8.&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x628A;&#x65F6;&#x95F4;&#x6D6A;&#x8D39;&#x5728;&#x90A3;&#x4E9B;&#x4ECE;&#x4E0D;&#x9F13;&#x52B1;&#x4ED6;&#x4EEC;&#x7684;&#x4EBA;&#x8EAB;&#x4E0A;&#x3002;</p>
+<p>&#x806A;&#x660E;&#x4EBA;&#x559C;&#x6B22;&#x4E0E;&#x806A;&#x660E;&#x4EBA;&#x5728;&#x4E00;&#x8D77;&#x3002;&#x4ED6;&#x4EEC;&#x4E0E;&#x5BB6;&#x5EAD;&#x3001;&#x670B;&#x53CB;&#x4EE5;&#x53CA;&#x719F;&#x4EBA;&#x4E00;&#x8D77;&#x5206;&#x4EAB;&#x4ED6;&#x4EEC;&#x7684;&#x5174;&#x8DA3;&#x548C;&#x89C2;&#x70B9;&#x3002;&#x4ED6;&#x4EEC;&#x5F53;&#x7136;&#x77E5;&#x9053;&#xFF0C;&#x4ED6;&#x4EEC;&#x5E94;&#x8BE5;&#x5C3D;&#x53EF;&#x80FD;&#x5C11;&#x82B1;&#x4E00;&#x70B9;&#x513F;&#x65F6;&#x95F4;&#x4E0E;&#x90A3;&#x4E9B;&#x5FC3;&#x6001;&#x6D88;&#x6781;&#x7684;&#x4EBA;&#x76F8;&#x5904;&#x3002;</p>
+<p>#9.&#x4ED6;&#x4EEC;&#x4ECE;&#x4E0D;&#x9A84;&#x50B2;&#x81EA;&#x5927;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x5F88;&#x5C11;&#x542C;&#x5230;&#x806A;&#x660E;&#x4EBA;&#x8BF4;&#x4ED6;&#x4EEC;&#x81EA;&#x5DF1;&#x5F88;&#x806A;&#x660E;&#x3002;&#x56E0;&#x4E3A;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4ED6;&#x4EEC;&#x90FD;&#x5F88;&#x5BB3;&#x7F9E;&#xFF0C;&#x800C;&#x4E14;&#xFF0C;&#x4ED6;&#x4EEC;&#x4E0D;&#x89C9;&#x5F97;&#x6709;&#x5FC5;&#x8981;&#x544A;&#x8BC9;&#x5168;&#x4E16;&#x754C;&#x4ED6;&#x4EEC;&#x975E;&#x5E38;&#x806A;&#x660E;&#x3002;&#x4ED6;&#x4EEC;&#x5F88;&#x5C11;&#x5938;&#x8000;&#x81EA;&#x5DF1;&#x7684;&#x6210;&#x5C31;&#x548C;&#x5956;&#x52B1;&#x3002;</p>
+<p>#10.&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5FD8;&#x8BB0;&#x8BF4;&#x201C;&#x8C22;&#x8C22;&#x4F60;&#xFF01;&#x201D;</p>
+<p>&#x8868;&#x8FBE;&#x8C22;&#x610F;&#x662F;&#x4E00;&#x4EF6;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x806A;&#x660E;&#x4EBA;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E16;&#x754C;&#x5E76;&#x4E0D;&#x4EE5;&#x4ED6;&#x4EEC;&#x4E3A;&#x4E2D;&#x5FC3;&#x3002;&#x4ED6;&#x4EEC;&#x7B03;&#x4FE1;&#x5584;&#x826F;&#x7684;&#x529B;&#x91CF;&#xFF0C;&#x800C;&#x4E14;&#x4E00;&#x4E2A;&#x884C;&#x4E3A;&#x826F;&#x597D;&#x7684;&#x4E3E;&#x52A8;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x5728;&#x672A;&#x6765;&#x5C06;&#x7ED9;&#x4E88;&#x4ED6;&#x4EEC;&#x540C;&#x6837;&#x7684;&#x56DE;&#x62A5;&#x3002;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[about]]></title>
+      <url>http://murainy.github.io/2016/07/01/about/</url>
+      <content type="html"><![CDATA[<p><img src="http://blog.fens.me/wp-content/uploads/2014/05/hexo-github1.png" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[me]]></title>
+      <url>http://murainy.github.io/2016/07/01/me/</url>
+      <content type="html"><![CDATA[<p>Hexo &#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5730;&#x3001;&#x8F7B;&#x91CF;&#x5730;&#x3001;&#x57FA;&#x4E8E;Node&#x7684;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x535A;&#x5BA2;&#x6846;&#x67B6;&#x3002;&#x901A;&#x8FC7;Hexo&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x4EC5;&#x9700;&#x8981;&#x51E0;&#x6761;&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x3002;</p>
+<p>&#x4EBA;&#x7684;&#x4E00;&#x5207;&#x75DB;&#x82E6;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x90FD;&#x662F;&#x5BF9;&#x81EA;&#x5DF1;&#x7684;&#x65E0;&#x80FD;&#x7684;&#x6124;&#x6012;&#x3002;</p>
+<p><img src="https://github.com/murainy/murainy.github.io/blob/master/images/avatar.png?raw=true" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[test]]></title>
+      <url>http://murainy.github.io/2016/07/01/test/</url>
+      <content type="html"><![CDATA[<p> <img src="https://github.com/murainy/murainy.github.io/blob/master/images/6700S.jpg?raw=true" alt="&#x6854;&#x5B50;"></p>
+<div markdown="1"><br>This is <em>true</em> markdown text.<br></div>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[人，不免失败的时刻]]></title>
+      <url>http://murainy.github.io/2016/07/01/index/</url>
+      <content type="html"><![CDATA[<p> <img src="https://github.com/murainy/murainy.github.io/blob/master/images/bg_5.jpg?raw=true" alt=""><br>&#x3000;&#x3000;&#x4EBA;&#xFF0C;&#x4E0D;&#x514D;&#x5931;&#x8D25;&#x7684;&#x65F6;&#x523B;&#x3002;&#x5C3D;&#x5176;&#x5728;&#x6211;&#xFF0C;&#x6280;&#x4E0D;&#x5982;&#x4EBA;&#x7684;&#x5931;&#x8D25;&#xFF0C;&#x662F;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x597D;&#x9057;&#x61BE;&#x7684;&#x3002;&#x6700;&#x53EF;&#x6015;&#x7684;&#x5931;&#x8D25;&#xFF0C;&#x662F;&#x5F53;&#x81EA;&#x5DF1;&#x8FD8;&#x6709;&#x4E00;&#x640F;&#x7684;&#x529B;&#x6C14;&#x4E0E;&#x673A;&#x4F1A;&#x65F6;&#xFF0C;&#x5374;&#x4E3B;&#x52A8;&#x653E;&#x5F03;&#x7684;&#x5931;&#x8D25;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x5728;github&#x4E2D;&#x7684;&#xFF0C;&#x53EA;&#x6709;master&#x5206;&#x652F;&#x7684;&#x5185;&#x5BB9;&#x624D;&#x80FD;&#x663E;&#x793A;&#x5230;&#x4F60;&#x8BBF;&#x95EE;&#x7684;&#x7AD9;&#x70B9;&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4F7F;&#x7528;hexo&#x65F6;&#xFF0C;public&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4F60;&#x7684;&#x535A;&#x5BA2;&#x751F;&#x6210;&#x540E;&#x7684;&#x5185;&#x5BB9;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4F7F;&#x7528;&#x4E86;clone&#x8FDC;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x4E0A;master&#x5206;&#x652F;&#xFF0C;&#x8FD9;&#x6837;&#x4FDD;&#x8BC1;&#x4E86;hexo&#x80FD;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5230;public&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5E76;&#x4E14;&#x63D0;&#x4EA4;&#x5230;&#x8FDC;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;master&#x5206;&#x652F;&#x4E0A;&#x3002;</p>
+<p>&#x3000;&#x3000;github&#x771F;&#x662F;&#x4E0D;&#x9519;&#xFF0C;&#x80FD;&#x6062;&#x590D;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#xFF0C;&#x4EE5;&#x524D;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;octopress&#x7684;&#x5C31;&#x662F;&#x641E;&#x4E0D;&#x6E05;&#x8FD9;&#x4E24;&#x4E2A;&#x5206;&#x652F;&#x7684;&#x6982;&#x5FF5;&#x81EA;&#x5DF1;&#x89C9;&#x5F97;&#x5F88;&#x618B;&#x5C48;&#xFF0C;&#x4E8E;&#x662F;&#x6CA1;&#x6709;&#x518D;&#x66F4;&#x65B0;&#xFF0C;&#x524D;&#x6BB5;&#x65F6;&#x95F4;&#x662F;&#x60F3;&#x5728;&#x642D;&#x5EFA;&#x4E00;&#x4E0B;&#xFF0C;&#x4E8E;&#x662F;&#x627E;&#x5230;&#x4E86;hexo&#xFF0C;&#x8FD9;&#x4E2A;&#x4F7F;&#x7528;&#x65B9;&#x4FBF;&#x7684;&#x642D;&#x5EFA;&#x5DE5;&#x5177;&#xFF0C;&#x5B98;&#x65B9;&#x7F51;&#x7AD9;&#x7684;&#x5185;&#x5BB9;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x8BE6;&#x7EC6;&#x7684;&#x3002;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[my new post]]></title>
+      <url>http://murainy.github.io/2016/07/01/my-new-post/</url>
+      <content type="html"><![CDATA[<p> <img src="https://github.com/murainy/murainy.github.io/blob/master/images/avatar.png?raw=true" alt=""></p>
+<p>Hexo&#x514D;&#x8D39;&#x9759;&#x6001;&#x535A;&#x5BA2;&#x96BE;&#x70B9;&#x6709;&#x4E24;&#x4E2A;&#xFF0C;&#x4E00;&#x662F;npm&#x7684;&#x5B89;&#x88C5;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x9759;&#x6001;&#x7684;&#x8BBE;&#x7F6E;&#x4E0E;&#x4E66;&#x5199;&#x3002;&#x81F3;&#x4E8E;&#x5982;&#x679C;&#x6765;&#x4E0A;&#x4F20;Hexo&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x535A;&#x5BA2;&#xFF0C;&#x5047;&#x5982;&#x4F60;&#x5B9E;&#x5728;&#x4E0D;&#x60F3;&#x7528;&#x4EC0;&#x4E48;Git&#x8FD9;&#x7C7B;&#x590D;&#x6742;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x7528;FTP&#x8F6F;&#x4EF6;&#x5C06;Public&#x4E2D;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x5230;Web&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x3002;</p>
+<p>&#x8BFB;&#x4E66;&#x6839;&#x672C;&#x65E0;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5145;&#x6EE1;&#x4E86;&#x77E5;&#x9053;&#x7684;&#x5FEB;&#x4E50;&#x3002;&#x2014;&#x2014; &#x5FAE;&#x535A;&#x67D0;&#x300E;&#x8457;&#x300F;&#x540D;&#x300E;&#x7A0B;&#x5E8F;&#x300F;&#x733F;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[readme]]></title>
+      <url>http://murainy.github.io/2016/07/01/readme/</url>
+      <content type="html"><![CDATA[<p><img src="http://i.imgur.com/QicqtAg.png" alt=""></p>
+<p>#YAML &#x89E3;&#x6790;&#x9519;&#x8BEF;</p>
+<p>JS-YAML: incomplete explicit mapping pair; a key node is missed at line 18, column 29:<br>      last_updated: Last updated: %s<br>&#x5982;&#x679C; YAML &#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x5305;&#x542B;&#x5192;&#x53F7;&#xFF08;:&#xFF09;&#x7684;&#x8BDD;&#xFF0C;&#x8BF7;&#x52A0;&#x4E0A;&#x5F15;&#x53F7;&#x3002;</p>
+<p>JS-YAML: bad indentation of a mapping entry at line 18, column 31:<br>      last_updated:&#x201D;Last updated: %s&#x201D;<br>&#x8BF7;&#x786E;&#x8BA4;&#x60A8;&#x4F7F;&#x7528;&#x7A7A;&#x683C;&#x8FDB;&#x884C;&#x7F29;&#x8FDB;&#xFF08;Soft tab&#xFF09;&#xFF0C;&#x5E76;&#x786E;&#x8BA4;&#x5192;&#x53F7;&#x540E;&#x6709;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x8D44;&#x6599;&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x88AB;&#x66F4;&#x65B0;&#xFF0C;&#x6216;&#x662F;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x4E0E;&#x4FEE;&#x6539;&#x524D;&#x7684;&#x76F8;&#x540C;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#x5E76;&#x518D;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;</p>
+<pre><code>$ hexo clean
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://murainy.github.io/2016/06/30/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
